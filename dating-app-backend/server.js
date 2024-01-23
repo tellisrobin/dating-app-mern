@@ -1,9 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
+import { PORT, MONGODBURL } from "./config.js";
 
-const app = process.env.port || express();
-const port = 8001;
+const app = express();
+const port = process.env.port || 8001;
 
 app.get("/", (req, res) => res.status(200).send("Hello Robin"));
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
