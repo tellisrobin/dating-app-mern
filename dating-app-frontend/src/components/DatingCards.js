@@ -48,7 +48,7 @@ const DatingCards = () => {
           >
             <div
               style={{ backgroundImage: `url(${person.imageurl})` }}
-              className="relative bg-[white] w-[400px] max-w-[85vw] h-[70vh] shadow-[0px_18px_53px_0px_rgba(0,0,0,0.3)] bg-cover bg-center p-5 rounded-[20px] text-[white] m-1.5 bottom-10"
+              className="relative bg-[white] w-[400px] max-w-[85vw] h-[70vh] shadow-[0px_18px_53px_0px_rgba(0,0,0,0.3)] bg-cover bg-center p-5 rounded-[20px] text-[white] m-1.5 bottom-10 "
             >
               <h3 className="absolute m-2.5 bottom-0 text-white text-3xl font-medium ">
                 {person.name}
