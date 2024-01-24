@@ -1,11 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
+import Cors from "cors";
 import { PORT, MONGODBURL } from "./config.js";
 import { Card } from "./models/cardModel.js";
 
 const app = express();
 const port = process.env.port || 8001;
 app.use(express.json());
+app.use(Cors());
 
 mongoose
   .connect(MONGODBURL)
