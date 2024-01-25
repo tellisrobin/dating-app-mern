@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import DatingCard from "react-tinder-card";
-
+import axios from "axios";
 const DatingCards = () => {
-  const [people, setPeople] = useState([
+  const [people, setPeople] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8001/dating/cards")
+      .then((response) => {
+        console.log(response.data);
+        setPeople(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  /*[
     {
       name: "Robin",
       imageurl:
@@ -24,7 +37,7 @@ const DatingCards = () => {
       imageurl:
         "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
     },
-  ]);
+  ]);*/
   const swiped = (direction, nameToDelete) => {
     console.log("receiving " + nameToDelete);
   };
@@ -47,7 +60,7 @@ const DatingCards = () => {
             }}
           >
             <div
-              style={{ backgroundImage: `url(${person.imageurl})` }}
+              style={{ backgroundImage: `url(${person.imgurl})` }}
               className="relative bg-[white] w-[400px] max-w-[85vw] h-[70vh] shadow-[0px_18px_53px_0px_rgba(0,0,0,0.3)] bg-cover bg-center p-5 rounded-[20px] text-[white] m-1.5 bottom-10 "
             >
               <h3 className="absolute m-2.5 bottom-0 text-white text-3xl font-medium ">
